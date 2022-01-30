@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Bookstore2.Recomenda>
+
+@{
+    ViewBag.Title = "Your Recomendations";
+
+}
+
+<h2>Your Recomendations</h2>
+<center>
+    @using (Html.BeginForm("Index", "Recomendas", FormMethod.Post))
+    {
+        <span>From</span><input type="date" name="fecha">
+        <input type="submit" value="Show"/>
+    }
+</center>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.published)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.published)
+            </td>
+
+        </tr>
+    }
+
+</table>
